@@ -1,5 +1,7 @@
 import os
 import sys
+import myfile
+
 print(sys.hash_info)
 print ('Hello')
 print(12+32434-343)
