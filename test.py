@@ -1,6 +1,8 @@
 import os
 import sys
-import myfile
+import myfile #импортирует моудль из той же папки , что и проект
+
+myfile.title
 
 print(sys.hash_info)
 print ('Hello')
