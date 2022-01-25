@@ -1,8 +1,6 @@
 import random, os
-#import names #подключаем файл с именами
-#import colorama #красивые разноцветные стили для текста. Нужно импортировать в питон через pip
 
-from colorama import Fore, Back, Style 
+from colorama import Fore, Back, Style  #import colorama #красивые разноцветные стили для текста. Нужно импортировать в питон через pip
 from names import a, b, c, d, e, f, g, h, i, j, k, l, m, p, o, r #импортируем атрибуты из другого модуля без запуска модуля
 w = [a, b, c, d, e, f, g, h, i, j, k, l, m, p, o, r]    
 n=0
