@@ -16,6 +16,8 @@ print(a, b)
 
 dir(names)
 print(dir(names))
-
+l=[1,2]
+l.append(l)
+print(l)
 print('<--- Окончание программы--->') 
 input('Для выхода нажмите ENTER') #чтобы окошко не исчезало сразу

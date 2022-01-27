@@ -13,7 +13,8 @@ while True:
         x = random.choice (w) #выбираем случайное имя из списка
         if n == 3 and (x != a or x !=b or x !=c or x !=d or x !=i): #если имя относится к плебейскому
             print('\n' + Fore.YELLOW + 'Автоматическая система не смогла сделать выбор, поэтому поедет '+ Fore.LIGHTRED_EX + 'ДЮСМЕТОВ!!!!!!!!!')
-            input('Нажмите любую клавишу для завершения программы...')
+            input('\n' + Fore.WHITE + 'Нажмите любую клавишу для завершения программы...')
+            os.system ('cls')
             break
         if x == a or x == b or x == c or x == d or x == i:
             print('\n'+ Fore.YELLOW +'---> Выбор пал на ' + Fore.LIGHTGREEN_EX + x + '\n')
