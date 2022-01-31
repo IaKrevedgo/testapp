@@ -1,8 +1,7 @@
 import random, os
 
 from colorama import Fore, Back, Style  #import colorama #красивые разноцветные стили для текста. Нужно импортировать в питон через pip
-from names import a, b, c, d, e, f, g, h, i, j, k, l, m, p, o, r #импортируем атрибуты из другого модуля без запуска модуля
-w = [a, b, c, d, e, f, g, h, i, j, k, l, m, p, o, r]    
+from names import a, b, c, d, e, f, g, h, i, j, k, l, m, p, o, r #импортируем атрибуты из другого модуля без запуска модуля    
 n=0
 os.system ('cls')
 print (Fore.YELLOW + 'ОТДЕЛ СИКН')
