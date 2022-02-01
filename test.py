@@ -3,6 +3,17 @@ import sys
 import myfile #импортирует модуль из той же папки
 import names #импортируем модуль с именами и проект и запускает его
 import struct
+
+class Worker:
+    def __init__(self,name,pay):
+        self.name = name
+        self.pay = pay
+    def lastName(self):
+        return self.name.split() [-1]
+    def giveRaise(self, percent):
+        self.pay *= (1.0 + percent)
+        
+        
 print('<--- Запуск программы--->') 
 print(myfile.title +'\n')
 
@@ -95,6 +106,14 @@ print(x-y)
 print(x>y)
 print(list(set([1,2,1,3,1])))
 print('k' in set('IaKrevedgo'), 'p' in 'spam','ham' in ['ham','eggs','spam']) #используем in для множеств
-    
+bob = Worker('Билли Джонс', 25000)
+sue = Worker('Азсланец Мех', 34000) 
+print(bob.lastName())
+sue.giveRaise(-.10)
+print(sue.pay)   
+ 
 print('\n'+'<--- Окончание программы--->') 
 input('Для выхода нажмите ENTER') #чтобы окошко не исчезало сразу
+
+
+    
