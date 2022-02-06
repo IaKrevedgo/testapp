@@ -1,5 +1,6 @@
 #Глава 6-7
-import copy,sys,os
+import copy,sys,os,math
+
 
 os.system('cls')
 x = 1
@@ -67,3 +68,29 @@ food = 'spam'
 qty = 10
 
 print('%(qty)d more %(food)s' % vars())
+somelist= list('IaKrevedgo')
+print('first={0},last={1}'.format(somelist[0],somelist[-1])) #Форматирование списка (вывод 1 и последнего элемента)
+parts =somelist[0],somelist[-1],somelist[1:-2]
+print('first={0}, last={1}, middle={2}'.format(*parts)) #разделение списка на части и вывод начала, конца и середины
+
+#форматирование текста и переменных
+print('{0:20} тут центр {1:20}'.format('spam',123.4567))
+print('{0:>20} = {1:<20}'.format('spam',123.4567)) #добавляет поля
+print('{0.platform:>20} = {1[kind]:<20}'.format(sys,dict(kind='Компьютер'))) #подключается словарь
+
+print('e={0:e}, 2e={1:.2e}, g={2:g}'.format(math.pi,math.pi,math.pi)) #слева форматирование, справа подключаем значения из библиотеки math
+print('e=%e, 2e=%1.2e, g=%2g' % (math.pi,math.pi,math.pi)) #!те же тапки, толко меньше писанины
+
+print('{0:x}, {1:o}, {2:b}'.format(255,255,255)) #отображене 16-ти, 8-ми и 2 чного формата
+print('%x, %o'% (255,255)) #!теже тапки, только меньше писанины
+
+print(hex(255),int('FF',16), 0xFF, ' ', oct(255),int('377',8),0o377) #преобразования в/из 16ричного и 8ричного формата
+
+print(format(math.pi,'06.3f')) #запись для одного элемента
+data = dict(platform=sys.platform,kind='laptop')
+print('My {kind:<2} runs {platform:>2}'.format(**data)) #вывод из созданой переменной
+print('My %(kind) - 2s runs %(platform)2s' % data) #те же тапки
+
+print('{0:d} {0:,d}'.format(3000000,3000000)) #вывод с разделителями и без
+print()
+
