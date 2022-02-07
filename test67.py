@@ -1,5 +1,6 @@
 #Глава 6-7
 import copy,sys,os,math
+import string
 
 
 os.system('cls')
@@ -92,5 +93,10 @@ print('My {kind:<2} runs {platform:>2}'.format(**data)) #вывод из соз�
 print('My %(kind) - 2s runs %(platform)2s' % data) #те же тапки
 
 print('{0:d} {0:,d}'.format(3000000,3000000)) #вывод с разделителями и без
-print()
+
+#Форматирование строк
+t = string.Template('$num = $title')
+print(t.substitute({'num':7,'title':'Strings around us'}))
+print(t.substitute(num=7, title='Strings'))
+print(t.substitute(dict(num=7, title='Strings2')))
 
