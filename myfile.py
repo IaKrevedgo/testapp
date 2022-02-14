@@ -1,1 +1,2 @@
-title = "ТЕСТОВАЯ ПРОГРАММА ДЛЯ ОБУЧЕНИЯ"
+Hello text file
+Goodbye text file
