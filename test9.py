@@ -6,7 +6,7 @@ import struct                           # упауовщик для двоичн
 import os
 from collections import namedtuple      #класс для работы с кортежамив стандартной бибилиотеки
 
-system
+os.system ('cls')           # очищаем окно, чтобы отслеживать итерации
 t= ('cc','aa','dd','bb')    # коретеж
 tmp = list(t)               # список из кортежа
 tmp.sort()
@@ -39,10 +39,12 @@ print(open('myfile.py').read())                         # читаем весь 
 
 for line in open('myfile.py'):                          # читаем с помощью файловых итераторов, а не чтения
     print(line, end='')
+    
 try:
     print(open('D:\\_My\\desktop.ini').read())              # открываем файл в произвольном месте на диске
 except:
-    print('---> Sorry! File not found') 
+    print('---> Sorry! File not found')                     # если файл не найден, или открыть не получилось пишем сообщение
+    
 X, Y, Z = 43, 44, 45
 S = 'Spam'
 D = {'a':1,'b':2}
@@ -149,3 +151,93 @@ Y = [L] * 4
 
 print(X)
 print(Y)
+
+L[1] = 0
+print(X)
+print(Y) 
+
+L = ['IaKrevedgo']                                      # добавление ссылки на тотже самый объект
+L.append(L)
+
+print(L)                                                # вместо зацикливания пишет [...]
+
+
+##УПРАЖНЕНИЯ##
+
+print('УПРАЖНЕНИЯ')
+
+X = 'IaKrevedgo'
+Y = 'World'
+
+X, Y = Y, X                                             # меняет местами значенич Х и У
+
+print(X, Y)
+
+D = {}
+D[1] = 'a'
+D[2] = 'b'
+
+print(D)                                                # создает ключи и значения в словаре
+
+D[(1, 2, 3)] = 'c'                                      # добавляет 3 элемент в словарь с ключем 1,2,3
+print(D)
+
+D = {}                                                  # очищаем словарь
+D = ['a', 'b', 'c']                                     # заново заполняем словарь
+#D['d'] = 'IaKrevedgo'
+print(D)
+S = 'Spam'
+S[0][0][0][0][0]
+print(S)
+
+rec = namedtuple('Rec',['name','age','jobs'])           # создание производного класса
+bob = rec(name='Bob', age= 0.5, jobs=['dev','mgr'])
+print(bob)
+print(bob[0],bob[2])                                    # доступ по позиции
+print(bob.name,bob.jobs)  
+
+
+os.system ('cls')           # очищаем окно, чтобы отслеживать итерации
+Perstype = namedtuple('id',['ID','name','fam','mid','age','job','dep','email','tel'])
+
+Pers_id = ''
+Pers_name = ''
+Pers_family = ''
+Pers_midname = ''
+Pers_bdate = ''
+Pers_job = ''
+Pers_dep = ''
+Pers_email = ''
+Pers_tel = ''
+
+class Person:
+    def __init__(self, Person_id, Person_name, Person_family, Person_midname, Person_bdate, Person_job, Person_dep, Person_email, Person_tel):
+        self.id = Person_id
+        self.name = Person_name
+        self.family = Person_family
+        self.midname = Person_midname
+        self.bdate = Person_bdate
+        self.job = Person_job
+        self.dep = Person_dep
+        self.email = Person_email
+        self.tel = Person_tel
+        
+    def __str__(self):
+        return f'Найдены следующие сотрудники: {self.id}  {self.name}  {self.midname}  {self.bdate}  {self.job}  {self.dep}  {self.email}  {self.tel}'    
+x = ''    
+              
+
+line_count = 0
+with open ('personal.csv', encoding='UTF-8') as csv_file:
+    data = csv.DictReader(csv_file, delimiter = ';')
+    
+    Pers_ID = input('Введите номер ID сотрудника: ')
+
+    for row in data: 
+            line_count += 1
+            x = dict(row)
+            p = Person(x['Pers_id'], x['Pers_name'], x['Pers_family'], x['Pers_midname'], x['Pers_bdate'], x['Pers_job'], x['Pers_dep'], x['Pers_email'], x['Pers_tel'])
+            if int(Pers_ID) == int(p.id):
+            #    print('Найдены следующие сотрудники: ', x['Pers_name'], x['Pers_family'], x['Pers_midname'])
+                print(p.__str__())
+
