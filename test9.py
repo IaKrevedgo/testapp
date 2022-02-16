@@ -3,10 +3,10 @@ import pickle                           # библиотека для работ
 import json                             # другая библиоткеа для рбаоты с двоичными файлами
 import csv                              # бибилотека для работы с файлами csv
 import struct                           # упауовщик для двоичных файлов
-
+import os
 from collections import namedtuple      #класс для работы с кортежамив стандартной бибилиотеки
 
-
+system
 t= ('cc','aa','dd','bb')    # коретеж
 tmp = list(t)               # список из кортежа
 tmp.sort()
@@ -39,9 +39,10 @@ print(open('myfile.py').read())                         # читаем весь 
 
 for line in open('myfile.py'):                          # читаем с помощью файловых итераторов, а не чтения
     print(line, end='')
-
-print(open('D:\\_My\\desktop.ini').read())              # открываем файл в произвольном месте на диске
-
+try:
+    print(open('D:\\_My\\desktop.ini').read())              # открываем файл в произвольном месте на диске
+except:
+    print('---> Sorry! File not found') 
 X, Y, Z = 43, 44, 45
 S = 'Spam'
 D = {'a':1,'b':2}
@@ -142,3 +143,9 @@ L1 = [1, ('a', 3)]
 L2 = [1, ('a', 3)]
 print(L1 == L2, L1 is L2)                               # значения равны? Тот же самый объект? (для поротких строк не работает)
 
+L = [4, 5, 6]
+X = L * 4
+Y = [L] * 4
+
+print(X)
+print(Y)
