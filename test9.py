@@ -197,47 +197,5 @@ print(bob[0],bob[2])                                    # доступ по по
 print(bob.name,bob.jobs)  
 
 
-os.system ('cls')           # очищаем окно, чтобы отслеживать итерации
-Perstype = namedtuple('id',['ID','name','fam','mid','age','job','dep','email','tel'])
 
-Pers_id = ''
-Pers_name = ''
-Pers_family = ''
-Pers_midname = ''
-Pers_bdate = ''
-Pers_job = ''
-Pers_dep = ''
-Pers_email = ''
-Pers_tel = ''
-
-class Person:
-    def __init__(self, Person_id, Person_name, Person_family, Person_midname, Person_bdate, Person_job, Person_dep, Person_email, Person_tel):
-        self.id = Person_id
-        self.name = Person_name
-        self.family = Person_family
-        self.midname = Person_midname
-        self.bdate = Person_bdate
-        self.job = Person_job
-        self.dep = Person_dep
-        self.email = Person_email
-        self.tel = Person_tel
-        
-    def __str__(self):
-        return f'Найдены следующие сотрудники: {self.id}  {self.name}  {self.midname}  {self.bdate}  {self.job}  {self.dep}  {self.email}  {self.tel}'    
-x = ''    
-              
-
-line_count = 0
-with open ('personal.csv', encoding='UTF-8') as csv_file:
-    data = csv.DictReader(csv_file, delimiter = ';')
-    
-    Pers_ID = input('Введите номер ID сотрудника: ')
-
-    for row in data: 
-            line_count += 1
-            x = dict(row)
-            p = Person(x['Pers_id'], x['Pers_name'], x['Pers_family'], x['Pers_midname'], x['Pers_bdate'], x['Pers_job'], x['Pers_dep'], x['Pers_email'], x['Pers_tel'])
-            if int(Pers_ID) == int(p.id):
-            #    print('Найдены следующие сотрудники: ', x['Pers_name'], x['Pers_family'], x['Pers_midname'])
-                print(p.__str__())
-
+            
