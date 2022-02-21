@@ -7,7 +7,7 @@ y = '''Personal_data(x['Pers_id'], x['Pers_name'], x['Pers_family'],
                 x['Pers_midname'], x['Pers_bdate'], x['Pers_job'],
                        x['Pers_dep'], x['Pers_email'], x['Pers_tel'])''' 
 run = 1                                                                     # запуск программы
-class Personal_data:                                                               # класс с параметрами сотрудника
+class Personal_data:                                                        # класс с параметрами сотрудника
     def __init__(self, Person_id, Person_name, Person_family,
                  Person_midname, Person_bdate, Person_job, Person_dep,
                  Person_email, Person_tel):
