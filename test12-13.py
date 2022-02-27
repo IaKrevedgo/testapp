@@ -66,3 +66,135 @@ while x > 1:
 else:                                           # условие для цикла 
     print('\n', y, 'is prime')
     
+for x in ['spam','ham','eggs']:
+    print(x, end=' ')
+    
+sum = 0
+for x in [1, 2, 3, 4]:
+    sum = sum + x                               # сумма всех элементов в списке
+print(sum)
+
+prod = 1
+for item in [1, 2, 3, 4]:
+    prod *= item                                # перемножение всех элементов в списке
+print(prod)
+
+S = 'IaKrevedgo'                            
+T = ("and", "i'am", "okay")                     
+Z = [(1, 2), (3, 4), (5, 6)]
+for x in S:                                     # применяем цикл на строку
+    print(x, end = ' ')    
+for x in T:                                     # примеяем цикл на кортеж (список элементов)
+    print(x, end = ' ')    
+for a, b in Z:
+    print(a, b)
+D = {'a': 1, 'b': 2, 'c': 3}                    # вывод ключей и значений из словаря
+for key in D:
+    print(key, '-->', D[key])
+list(D.items())
+for (key, value) in D.items():                  # итерация сразу по ключам и значениям
+    print(key, '-->>', value)
+
+for both in Z:
+    a, b = both                                 # итерация с присваиваением вручную
+    print(a, b)    
+
+((a, b), c) = ((1, 2), 3)
+for ((a, b), c) in [((1, 2), 3), ((4 ,5), 6)]:
+    print(a, b, c)
+for ((a, b), c) in [((1, 2), 3), ['XY', 6]]:    # присваивание строки
+    print(a, b, c)    
+
+a, *b, c = (1, 2, 3, 4)                         # тут b = [2, 3]
+for (a, *b, c) in [(1, 2, 3, 4), (5, 6, 7, 8)]: # присваивание последовательностей
+    print(a, b, c)
+    
+items = ['aaa', 111, (4, 5), 2.01]              # набор объектов
+tests = [(4, 5), 3.14]                          # ключи для поиска
+for key in tests:                               # для всех ключей
+    for item in items:                          # для всех элементов
+        if item == key:                         # если ключ и элемент совпадают
+            print(key, 'was found')
+            break
+    else:                                       # исключение для цикла если ключ не совпадает
+            print(key, 'not found!')
+            
+for key in tests:                               # тоже самое только проще
+    if key in tests:                            # вместо второго цикла в условии применяем in
+        print(key, 'was found')
+    else:
+        print(key, 'not found')
+        
+seq1 = 'IaKrevedgo'
+seq2 = 'BarabinsK'
+
+res= []                                         # создаем пустой список
+for x in seq1:                                  # для элементов seq1
+    if x in seq2:                               # которые есть в seq2
+        res.append(x)                           # добавялем  список res
+print(sorted(res))                              # выводим список с сортировкой
+
+res = [x for x in seq1 if x in seq2]            # теже тапки только в разы проще
+print(sorted(res))
+
+
+#ИСПОЛЬЗУЕМ RANGE
+print(list(range(5)), list(range(2,5)), list(range(0, 10, 2)))  # генерация списков с помощью range
+
+print(list(range(-5, 5)))                       # два аргумента - границы 
+print(list(range(5, -10, -1)))                  # три аргументы - границы и интервал. В данном случае на -1 каждый цикл
+ 
+for i in range(3, 10, 2):                       # применение range в циклах
+    print(i, 'Krevedgos')
+
+X = 'IaKrevedgo'
+for x in X: print(x, end = ' ')
+
+
+i = 0
+while i < len(X):                               # интеграция в цикл while         
+    print(X[i], end = '\n')
+    i += 1
+
+print(len(X))                                   # получаем длину строки Х
+print(list(range(len(X))))                      # генерируем range с помощью длины строки
+for i in range(len(X)): 
+    print(X[i], end = ' ')                      # ручная итерация посредством range
+
+for item in X:                                  # самый простой вариант цикла!
+    print(item, end = ' ')
+
+# бегущая строка епта
+print('\n')
+S = 'IaKrevedgo'                            
+for item in range(len(S)):                      # для счетчиков повторений
+    S = S[1:] + S[:1]                           # перемещает начальный элемент в конец
+    print(S, end = ' ')
+    
+print('\n')
+
+for i in range(len(S)):
+    X = S[i:] + S[:i]
+    print(X, end = ' ')
+
+print('\n')
+
+L = [1, 2, 3]
+for i in range(len(L)):                         # работает с любыми последовательностями
+    X = L[i:] + L[:i]
+    print(X, end = ' ')
+    
+print('\n')
+S = 'IaKrevedgo'
+for i in range(0, len(S), 2):                   # каждый второй элемент из строки S
+    print(S[i], end = ' ')
+ 
+print('\n')    
+for c in S[::2]:                                # тоже что и выше тока проще с использованием ::2
+    print(c, end = ' ')
+
+print('\n')     
+L = [1, 2, 3, 4, 5]
+for i in range(len(L)):                         # добавить 1 к каждому лементу в L
+    L[i] += 1
+print(L)

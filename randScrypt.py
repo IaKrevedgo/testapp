@@ -16,7 +16,7 @@ while True:
             input('\n' + Fore.WHITE + 'Нажмите любую клавишу для завершения программы...')
             os.system ('cls')
             break
-        if x in {a,b,c,d,i}:                                        # выбираем из тех кто может ехать
+        if x in {a, b, c, d, i}:                                        # выбираем из тех кто может ехать
             print('\n'+ Fore.YELLOW +'---> Выбор пал на ' + Fore.LIGHTGREEN_EX + x + '\n')
             n = 11
             z = input(Fore.WHITE + 'НАЖМИТЕ "y" чтобы оформить командировочный, или ENTER чтобы попытаться выбрать еще раз -->')
