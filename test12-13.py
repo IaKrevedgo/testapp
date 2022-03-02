@@ -1,4 +1,5 @@
-# ГЛАВА 12
+# ГЛАВА 12, 13
+import os
 
 choise = 'ham'
 print({'spam':1.25,
@@ -198,3 +199,72 @@ L = [1, 2, 3, 4, 5]
 for i in range(len(L)):                         # добавить 1 к каждому лементу в L
     L[i] += 1
 print(L)
+
+L1 = [1, 2, 3, 4]
+L2 = [5, 6, 7, 8]
+print(list(zip(L1, L2)))
+
+for (x, y) in zip(L1, L2):
+    print(x, y, '--', x + y)
+
+T1, T2, T3 = (1, 2, 3), (4, 5, 6), (7, 8, 9)
+print(list(zip(T1, T2, T3)))
+
+S1, S2 = 'abc', 'xyz321'                        # удобная запись несоклькоих переменных в одну строку, правда менее информативная
+print(list(zip(S1, S2)))
+
+keys = ['spam', 'eggs', 'toast']                # собираем ключи и значения в один словаь с помощью цикла
+vals = [1, 3, 5]
+print(list(zip(keys, vals)))
+D2 = {}
+for (k, v) in zip(keys, vals):
+    D2[k] = v
+print(D2)
+
+D3 = dict(zip(keys, vals))                      # те же тапки, только без цикла
+print(D3)
+
+print({k :v for (k, v) in zip(keys, vals)})     # тоже самое ваще в одну строчку ;) но менее читаемо
+
+
+#Смещение
+
+S = 'IaKrevedgo'
+offset = 0
+
+for item in S:
+    print(item, 'смещено на', offset)           # нумерует каждый элемент из цикла
+    offset += 1
+    
+for (offset, item) in enumerate(S):             # тоже самое только с помощью enumerate
+    print(item, 'смещено на', offset)
+    
+E = enumerate(S)    
+print(next(E), next(E), next(E))                # возращает номер и элемент
+
+
+#Пример enumerate для файла
+F = os.popen('dir')
+F = F.readline()
+print(F)
+F = os.popen('dir')
+F = F.read(50)
+print(F)
+print(os.popen('dir').readlines()[0])
+for line in os.popen('dir'):
+    print(line.rstrip())
+    
+print(os.system('systeminfo'))                  # получение информации о системы
+
+for (i, line) in enumerate(os.popen('systeminfo')): # форматирование информации, оставляем только 4 строки первые
+    if i == 4: break
+    print('%02d) %s' % (i, line.rstrip()))      # добавляем нумерацию
+    
+for line in os.popen('systeminfo'):             # вытаскиваем название os
+    parts = line.split(':')
+    if parts and parts[0].lower() == 'Название ОС':
+        print(parts[1].strip())
+        
+from urllib.request import urlopen
+for line in urlopen('http://rambler.ru'):
+    print(line)
