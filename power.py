@@ -22,7 +22,7 @@ L = [1, 2, 4, 8, 16, 32, 64]
 X = 16
 item = 0
 
-for item in L:
+for item in iter(range(L)):
     print(item)
     if L[item] == 2 ** X:
         print('Найдено под индексомсу', item)
