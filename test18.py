@@ -120,3 +120,40 @@ print('Совпадают =', intersect(s1,s2),'\n','Отличные =', union(
 print('Совпадают =', intersect([1,2,4],(1,4)),'\n','Отличные =', union('grilcK',s2))            # разнородные типы
 print('Совпадают =', intersect(s1,s2,s3),'\n','Отличные =', union(s1,s2,s3))                    # три операнда
             
+
+def tester(func, items, trace=True):
+    for i in range(len(items)):
+        items = items[1:] + items[:1]
+        if trace: print(items)
+        print(sorted(func(*items)))
+tester(intersect, ('a', 'asbdftre','asdfert','qwertydf'))
+
+tester(union, ('a','asdfg','avzxcadft','asdafqw',), False)
+tester(intersect,('ba','abcdefg','adbst','almbcnd'),False)
+print(intersect([1, 2, 1, 3],(1, 1, 4)))
+print(union([1, 2, 1, 3],(1, 1, 4)))
+
+def func(a, b=4,c=5):
+    print(a, b, c)
+func(1,2)
+
+def func(a, *pargs):                                                                            # созадет список
+    print(a, pargs)
+func(1,2,3)
+
+def func(a, **kargs):                                                                           # созадет словарь
+    print(a, kargs)
+func(a=1,b= 2,c=3)
+
+def func(a,b,c=3,d=4): print(a, b ,c, d)
+func(1,*(5,6))
+
+def func(a, b, c):
+    a = 2
+    b[0] = 'x'
+    c['a']= 'y'
+l=1
+m=[1]
+n={'a':0}
+func(l, m, n)
+print(l, n, m)
