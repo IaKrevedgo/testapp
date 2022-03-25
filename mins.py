@@ -36,5 +36,8 @@ print(min1(3, 4, 5, 6, 1, 2))
 print(min2('bbbb', 'aaaa'))                                 # работает также со строками
 print(min3([1, 2],[1, 3],[2, 2],[1,1]))
 
-print(minmax(lessthan, 3, 4, 5, 1 ,66, 74))
-print(minmax(grtrthan, 3, 234, 5, 1 , 66, 74))
+if __name__ == '__main__':                                  # Дополнение из 25 главы, чтобы при импорте модуля не срабатывал принт
+    print(minmax(lessthan, 3, 4, 5, 1 ,66, 74))
+    print(minmax(grtrthan, 3, 234, 5, 1 , 66, 74))
+    
+    

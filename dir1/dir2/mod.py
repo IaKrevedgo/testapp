@@ -1,0 +1,1 @@
+print('--->IaKrevedgo in mod.py')
