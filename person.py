@@ -4,7 +4,7 @@ class Person:
         self.name = name                                                                # заполнить поля при создании
         self.job = job                                                                  # self - новый экземпляр класса
         self.pay = pay
-        x
+        
     def lastName(self):
         if len(self.name.split()) == 2:                                                 # если указаны имя и фамилия
             return self.name.split()[-1]                                                # берем фамилию
@@ -13,8 +13,19 @@ class Person:
         if len(self.name.split()) == 2:                                                 # если указаны имя и фамилия
             return self.name.split()[0]                                                 # берем имя
         
-    def giverise(self, percent=0.0):                                                    # увеличиваем зарплату
+    def giveRise(self, percent=0.0):                                                    # увеличиваем зарплату
         self.pay = int(self.pay * (1 + percent))
+
+    def __repr__(self):
+        return '[Person: %s %s]' % (self.name, self.pay)
+    
+class Manager(Person):                                                                  # создаем подкласс
+    def __init__(self, name, pay):                                                      # инит для подкласса
+        Person.__init__(self, name, 'mgr', pay)                                         # для манагеров указываем срауз должность 'mgr'
+    def giveRise(self, persent=0.0, bonus=.10):                                         # манагер сцука такая всегда получает на 10% больше
+#        self.pay = int(self.pay *(1 + persent + bonus))                                # плохой способ!!!
+        Person.giveRise(self, persent + bonus)                                          # хороший способ. Используем метод родительского класса
+
 
 
 # !!!код ниже для самотестирования класса и помещен в условие, чтобы не отображаться при импорте модуля      
@@ -31,11 +42,23 @@ if __name__ == '__main__':                                                      
     print('%.2f' % sue.pay)                                                                 # извлекаем аттрибут экземпляра применяя форматирование строки
     print(bob.lastName(),zoe.lastName())
     print(bob.firstName(),sue.firstName(),zoe.firstName())                                  # выводим имена
-    zoe.giverise(.10)
+    zoe.giveRise(.10)
     print(zoe.pay)
-
-
-name = 'Den Ned'                                                                            # небольшой пример разделения имени и фамилии
-name.split()                                                                                # разделяем по пробелу
-if len(name.split()) == 2:                                                                  # если введены только Имя и фамиля то выводим фамилию                                                                                
-    print(name.split()[-1])
+    name = 'Den Ned'                                                                            # небольшой пример разделения имени и фамилии
+    name.split()                                                                                # разделяем по пробелу
+    if len(name.split()) == 2:                                                                  # если введены только Имя и фамиля то выводим фамилию                                                                                
+        print(name.split()[-1])
+        
+        
+    tom = Manager('Tom Jones', 50000)                                                    # создааем экземпляр                                                                                        # выполняется специальная версия
+    tom.giveRise(.10)                                                                           # выполняется специальная верия
+    print(tom.lastName())                                                                       # выполняется унаследованный метод                                                                 
+    print(tom)                                                                                  # выполняется унаследованный __repr__
+    
+    print('--All three--')   
+    for obj in (bob, sue, tom):                                                                 # обработать объекты обощенным способом
+        obj.giveRise(.10)                                                                       # выполнить метод giverise для этого объкта
+        print(obj)                                                                              # выполнить общий метод __repr__
+        
+    
+                                                  
